@@ -6880,7 +6880,7 @@ end
 
 function CanEditProperty(object,propertyData)
 	local tags = propertyData["tags"]
-	if tags == nil then
+	if propertyData["tags"] == nil then
 		return false
 	end
 	for _,name in pairs(tags) do
