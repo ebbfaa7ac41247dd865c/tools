@@ -7031,7 +7031,8 @@ function showProperties(obj)
 			
 		end
 		for key,attribute in nextObj:GetAttributes() do
-			local attribute_value = {key = tostring(attribute)}
+			local attribute_value = {}
+			attribute_value[key] = attribute
 			table.insert(propHolder,{propertyData = {Name = key, ValueType = "default", tags = {"readonly"}}, object = attribute_value})
 		end
 	end
