@@ -8675,6 +8675,7 @@ clipboardButton.MouseButton1Click:connect(function()
 	elseif CopyString then
 		CopyString(currentSource)
 	end
+	setclipboard(currentSource)
 end)
 
 closeButton.MouseButton1Click:connect(function()
