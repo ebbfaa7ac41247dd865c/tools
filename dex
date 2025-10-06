@@ -7024,7 +7024,13 @@ function showProperties(obj)
 					warn("Problem getting the value of property " .. v.Name .. " | " .. err)
 				end	--]]
 			end
+			--for key,attribute in nextObj:GetAttributes() do
+			--	table.insert(propHolder,{propertyData = v, object = nextObj})
+			--end
 		end
+	end
+	for i,v in pairs(propHolder) do
+		print(i..": ".. v)
 	end
 	sortProps(propHolder)
 	displayProperties(propHolder)
