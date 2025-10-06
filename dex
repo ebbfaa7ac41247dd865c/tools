@@ -6953,10 +6953,8 @@ function CreateRow(object, propertyData, isAlternateRow)
 	propertyValueFrame.Position = UDim2.new(0.5, 0, 0, 0)
 	propertyValueFrame.Parent = rowFrame
 
-	if not propertyData["oomb"] then
 	local control = GetControl(object, propertyData, readOnly)
 	control.Parent = propertyValueFrame
-	end
 
 	rowFrame.MouseEnter:connect(function()
 		propertyLabelFrame.BackgroundColor3 = Row.BackgroundColorMouseover
