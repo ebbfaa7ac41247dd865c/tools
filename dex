@@ -6986,6 +6986,7 @@ function displayProperties(props)
 			numRows = numRows + 1
 		end)
 	end
+	
 end
 
 function checkForDupe(prop,props)
@@ -7024,20 +7025,10 @@ function showProperties(obj)
 					warn("Problem getting the value of property " .. v.Name .. " | " .. err)
 				end	--]]
 			end
-			--for key,attribute in nextObj:GetAttributes() do
-			--	table.insert(propHolder,{propertyData = v, object = nextObj})
-			--end
+			
 		end
-	end
-	for i,v in pairs(propHolder) do
-		print(i)
-		print(v)
-		for k,c in pairs(v) do
-			print(k)
-			for w,h in pairs(c) do
-				print(w)
-				print(h)
-			end
+		for key,attribute in nextObj:GetAttributes() do
+			table.insert(propHolder,{propertyData = {Name = key, ValueType = "String"}, object = nextObj:GetAttributes()})
 		end
 	end
 	sortProps(propHolder)
