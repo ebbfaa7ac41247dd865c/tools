@@ -6979,12 +6979,12 @@ print(selection)
 
 function displayProperties(props)
 	for i,v in pairs(props) do
-		pcall(function()
+		--pcall(function()
 			local a = CreateRow(v.object, v.propertyData, ((numRows % 2) == 0))
 			a.Position = UDim2.new(0,0,0,numRows*Row.Height)
 			a.Parent = ContentFrame
 			numRows = numRows + 1
-		end)
+		--end)
 	end
 	
 end
