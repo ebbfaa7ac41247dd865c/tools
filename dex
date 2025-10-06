@@ -6674,13 +6674,17 @@ Controls["default"] = function(object, propertyData, readOnly)
 	end
 	
 	update()
-	
+	if not propertyData["oomb"] then
 	object.Changed:connect(function(property)
 		if (property == propertyName) then
 			update()
 		end
 	end)
-	
+	else
+		propertyData["oomb_object"]:GetAttributeChangedSignal(propertyName):connect(function(property)
+			update()
+		end)
+	end
 	return box
 end
 
@@ -7031,7 +7035,7 @@ function showProperties(obj)
 			
 		end
 		for key,attribute in nextObj:GetAttributes() do
-			table.insert(propHolder,{propertyData = {Name = key, ValueType = "default", tags = {"readonly"}}, object = nextObj:GetAttributes()})
+			table.insert(propHolder,{propertyData = {Name = key, ValueType = "default", tags = {"readonly"}, oomb = true, oomb_object = nextObj}, object = nextObj:GetAttributes()})
 		end
 	end
 	sortProps(propHolder)
