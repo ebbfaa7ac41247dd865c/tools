@@ -7033,7 +7033,8 @@ function showProperties(obj)
 		for key,attribute in nextObj:GetAttributes() do
 			local attribute_value = {}
 			attribute_value[key] = attribute
-			table.insert(propHolder,{propertyData = {Name = key, ValueType = "default", tags = {"readonly"}}, object = attribute_value})
+			nextObj:GetAttributes()[tostring(key)]
+			table.insert(propHolder,{propertyData = {Name = key, ValueType = "default", tags = {"readonly"}}, object = nextObj:GetAttributes()})
 		end
 	end
 	sortProps(propHolder)
