@@ -7030,7 +7030,12 @@ function showProperties(obj)
 		end
 	end
 	for i,v in pairs(propHolder) do
-		print(i..": ".. v)
+		print(i)
+		print(v)
+		for k,c in pairs(v) do
+			print(k)
+			print(c)
+		end
 	end
 	sortProps(propHolder)
 	displayProperties(propHolder)
