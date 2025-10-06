@@ -6880,9 +6880,9 @@ end
 
 function CanEditProperty(object,propertyData)
 	local tags = propertyData["tags"]
-	--if propertyData["tags"] == nil then
-		--return false
-	--end
+	if propertyData["tags"] == nil then
+		return false
+	end
 	for _,name in pairs(tags) do
 		if name == "readonly" then
 			return false
@@ -6953,8 +6953,10 @@ function CreateRow(object, propertyData, isAlternateRow)
 	propertyValueFrame.Position = UDim2.new(0.5, 0, 0, 0)
 	propertyValueFrame.Parent = rowFrame
 
+	if not propertyData["oomb"] then
 	local control = GetControl(object, propertyData, readOnly)
 	control.Parent = propertyValueFrame
+	end
 
 	rowFrame.MouseEnter:connect(function()
 		propertyLabelFrame.BackgroundColor3 = Row.BackgroundColorMouseover
@@ -7031,7 +7033,7 @@ function showProperties(obj)
 			
 		end
 		for key,attribute in nextObj:GetAttributes() do
-			table.insert(propHolder,{propertyData = {Name = key, ValueType = "String", tags = ["readonly"]}, object = nextObj:GetAttributes()})
+			table.insert(propHolder,{propertyData = {Name = key, ValueType = "String", tags = ["readonly"], oomb = "true"}, object = nextObj:GetAttributes()})
 		end
 	end
 	sortProps(propHolder)
